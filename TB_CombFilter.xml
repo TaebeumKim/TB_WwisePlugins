@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginModule>
+	<EffectPlugin Name="TB_CombFilter" CompanyID="319" PluginID="27174">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+
+			<!-- 0. Resonance Frequency (Hz) : 빗 모양 공명의 간격을 주파수 단위로 결정 -->
+			<Property Name="Frequency" Type="Real32" SupportRTPCType="Additive" DisplayName="Frequency (Hz)">
+				<UserInterface Step="10" Fine="1" Decimals="1" UIMin="20.0" UIMax="10000.0" />
+				<DefaultValue>440.0</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>20000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 1. Feedback (%) : 공명의 강도 및 꼬리 길이 (음수는 독특한 배음 생성) -->
+			<Property Name="Feedback" Type="Real32" SupportRTPCType="Additive" DisplayName="Feedback (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-99.0" UIMax="99.0" />
+				<DefaultValue>50.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-99.0</Min>
+							<Max>99.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 2. Damping (Hz) : 피드백 루프 내의 LPF (금속성을 부드럽게 깎음) -->
+			<Property Name="Damping" Type="Real32" SupportRTPCType="Additive" DisplayName="Damping LPF (Hz)">
+				<UserInterface Step="100" Fine="10" Decimals="0" UIMin="20" UIMax="20000" />
+				<DefaultValue>20000.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>20000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 3. Dry/Wet Mix (%) -->
+			<Property Name="Mix" Type="Real32" SupportRTPCType="Additive" DisplayName="Dry/Wet Mix (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>100.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 4. Output Gain (dB) -->
+			<Property Name="OutputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Output Gain (dB)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-24" UIMax="24" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>24.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+		</Properties>
+	</EffectPlugin>
+</PluginModule>

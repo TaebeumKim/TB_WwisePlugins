@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginModule>
+  <EffectPlugin Name="TB_Doppler" CompanyID="319" PluginID="14810">
+    <PluginInfo>
+      <PlatformSupport>
+        <Platform Name="Any">
+          <CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+          <CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+          <CanBeRendered>true</CanBeRendered>
+        </Platform>
+      </PlatformSupport>
+    </PluginInfo>
+    <Properties>
+      <!-- X축 (좌우) 위치 파라미터 -->
+      <Property Name="PositionX" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Left/Right (X)">
+        <UserInterface Step="1" Fine="0.1" Decimals="2" UIMax="100" UIMin="-100" />
+        <DefaultValue>0.0</DefaultValue>
+        <AudioEnginePropertyID>0</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>-100.0</Min>
+              <Max>100.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+      
+      <!-- Y축 (앞뒤) 위치 파라미터 -->
+      <Property Name="PositionY" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Front/Back (Y)">
+        <UserInterface Step="1" Fine="0.1" Decimals="2" UIMax="100" UIMin="-100" />
+        <DefaultValue>0.0</DefaultValue>
+        <AudioEnginePropertyID>1</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>-100.0</Min>
+              <Max>100.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+    </Properties>
+  </EffectPlugin>
+</PluginModule>

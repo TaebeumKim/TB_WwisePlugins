@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PluginModule>
+
+	<EffectPlugin Name="TB_Doubler" CompanyID="319" PluginID="7535">
+
+		<PluginInfo>
+
+			<PlatformSupport>
+
+				<Platform Name="Any">
+
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+
+					<CanBeRendered>true</CanBeRendered>
+
+				</Platform>
+
+			</PlatformSupport>
+
+		</PluginInfo>
+
+		<Properties>
+
+			<!-- Input Gain -->
+
+			<Property Name="InputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Input Gain">
+
+				<UserInterface Step="0.5" Fine="0.1" Decimals="1" UIMin="-12.0" UIMax="12.0" />
+
+				<DefaultValue>0.0</DefaultValue>
+
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+
+				<Restrictions>
+
+					<ValueRestriction>
+
+						<Range Type="Real32">
+
+							<Min>-12.0</Min>
+
+							<Max>12.0</Max>
+
+						</Range>
+
+					</ValueRestriction>
+
+				</Restrictions>
+
+			</Property>
+
+
+
+			<!-- Voice Count (Non-RTPC) -->
+
+			<Property Name="VoiceCount" Type="int32" SupportRTPCType="Additive" DisplayName="Voice Count">
+
+				<UserInterface Step="1" Fine="1" Decimals="0" UIMin="2" UIMax="8" />
+
+				<DefaultValue>2</DefaultValue>
+
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+
+				<Restrictions>
+
+					<ValueRestriction>
+
+						<Range Type="int32">
+
+							<Min>2</Min>
+
+							<Max>8</Max>
+
+						</Range>
+
+					</ValueRestriction>
+
+				</Restrictions>
+
+			</Property>
+			<!-- Delay Time (ID 2) - New Parameter -->
+			<Property Name="DelayTime" Type="Real32" SupportRTPCType="Additive" DisplayName="Delay Time (ms)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="3.0" UIMax="120.0" />
+				<DefaultValue>15.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>3.0</Min>
+							<Max>120.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+
+			<!-- Detune -->
+
+			<Property Name="Detune" Type="Real32" SupportRTPCType="Additive" DisplayName="Detune (Cents)">
+
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-200.0" UIMax="200.0" />
+
+				<DefaultValue>0.0</DefaultValue>
+
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+
+				<Restrictions>
+
+					<ValueRestriction>
+
+						<Range Type="Real32">
+
+							<Min>-200.0</Min>
+
+							<Max>200.0</Max>
+
+						</Range>
+
+					</ValueRestriction>
+
+				</Restrictions>
+
+			</Property>
+
+
+
+			<!-- Stereo Width -->
+
+			<Property Name="Width" Type="Real32" SupportRTPCType="Additive" DisplayName="Stereo Width">
+
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0.0" UIMax="100.0" />
+
+				<DefaultValue>100.0</DefaultValue>
+
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+
+				<Restrictions>
+
+					<ValueRestriction>
+
+						<Range Type="Real32">
+
+							<Min>0.0</Min>
+
+							<Max>100.0</Max>
+
+						</Range>
+
+					</ValueRestriction>
+
+				</Restrictions>
+
+			</Property>
+
+
+
+			<!-- High Cut -->
+
+			<Property Name="HighCut" Type="Real32" SupportRTPCType="Additive" DisplayName="High Cut">
+
+				<UserInterface Step="100" Fine="10" Decimals="0" UIMin="2000.0" UIMax="20000.0" />
+
+				<DefaultValue>20000.0</DefaultValue>
+
+				<AudioEnginePropertyID>5</AudioEnginePropertyID>
+
+				<Restrictions>
+
+					<ValueRestriction>
+
+						<Range Type="Real32">
+
+							<Min>2000.0</Min>
+
+							<Max>20000.0</Max>
+
+						</Range>
+
+					</ValueRestriction>
+
+				</Restrictions>
+
+			</Property>
+
+
+
+			<!-- Low Cut -->
+
+			<Property Name="LowCut" Type="Real32" SupportRTPCType="Additive" DisplayName="Low Cut">
+
+				<UserInterface Step="10" Fine="1" Decimals="0" UIMin="20.0" UIMax="2000.0" />
+
+				<DefaultValue>20.0</DefaultValue>
+
+				<AudioEnginePropertyID>6</AudioEnginePropertyID>
+
+				<Restrictions>
+
+					<ValueRestriction>
+
+						<Range Type="Real32">
+
+							<Min>20.0</Min>
+
+							<Max>2000.0</Max>
+
+						</Range>
+
+					</ValueRestriction>
+
+				</Restrictions>
+
+			</Property>
+
+
+
+			<!-- Dry/Wet Mix -->
+
+			<Property Name="DryWet" Type="Real32" SupportRTPCType="Additive" DisplayName="Dry/Wet Mix">
+
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0.0" UIMax="100.0" />
+
+				<DefaultValue>50.0</DefaultValue>
+
+				<AudioEnginePropertyID>7</AudioEnginePropertyID>
+
+				<Restrictions>
+
+					<ValueRestriction>
+
+						<Range Type="Real32">
+
+							<Min>0.0</Min>
+
+							<Max>100.0</Max>
+
+						</Range>
+
+					</ValueRestriction>
+
+				</Restrictions>
+
+			</Property>
+
+
+
+			<!-- Output Gain -->
+
+			<Property Name="OutputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Output Gain">
+
+				<UserInterface Step="0.5" Fine="0.1" Decimals="1" UIMin="-12.0" UIMax="12.0" />
+
+				<DefaultValue>0.0</DefaultValue>
+
+				<AudioEnginePropertyID>8</AudioEnginePropertyID>
+
+				<Restrictions>
+
+					<ValueRestriction>
+
+						<Range Type="Real32">
+
+							<Min>-12.0</Min>
+
+							<Max>12.0</Max>
+
+						</Range>
+
+					</ValueRestriction>
+
+				</Restrictions>
+
+			</Property>
+
+		</Properties>
+
+	</EffectPlugin>
+
+</PluginModule>

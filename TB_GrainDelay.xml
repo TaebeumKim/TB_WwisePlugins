@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginModule>
+	<EffectPlugin Name="TB_GrainDelay" CompanyID="319" PluginID="21786">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+
+			<!-- 0. Grain Rate (Hz) -->
+			<Property Name="GrainRate" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Grain Rate (Hz)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="1" UIMax="100" />
+				<DefaultValue>20.0</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.1</Min>
+							<Max>500.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 1. Grain Duration (ms) -->
+			<Property Name="GrainDuration" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Grain Duration (ms)">
+				<UserInterface Step="10" Fine="1" Decimals="1" UIMin="1" UIMax="2000" />
+				<DefaultValue>50.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>1.0</Min>
+							<Max>2000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 2. Grain Pitch (Semitones) -->
+			<Property Name="GrainPitch" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Grain Pitch (Semitones)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-24" UIMax="24" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-48.0</Min>
+							<Max>48.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 3. Grain LPF (Hz) -->
+			<Property Name="LPF" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Grain LPF (Hz)">
+				<UserInterface Step="100" Fine="10" Decimals="0" UIMin="20" UIMax="20000" />
+				<DefaultValue>20000.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>20000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 4. Grain HPF (Hz) -->
+			<Property Name="HPF" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Grain HPF (Hz)">
+				<UserInterface Step="100" Fine="10" Decimals="0" UIMin="20" UIMax="20000" />
+				<DefaultValue>20.0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>20000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 5. Diffusion (%) -->
+			<Property Name="Diffusion" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Diffusion (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>5</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 6. Feedback (%) -->
+			<Property Name="Feedback" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Feedback (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>6</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 7. Random Pitch (+/- Semitones) -->
+			<Property Name="RandPitch" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Random Pitch (+/- Semi)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="24" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>7</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>48.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 8. Random Volume (%) -->
+			<Property Name="RandVolume" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Random Volume (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>8</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 9. Random Panning (%) -->
+			<Property Name="RandPan" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Random Panning (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>9</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 10. Reverse Mix (%) -->
+			<Property Name="ReverseMix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Reverse Mix (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>10</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 11. Reverb Mix (%) -->
+			<Property Name="Reverb" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Reverb Mix (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>11</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 12. Mix (%) - 새로 추가된 Dry/Wet 노브 -->
+			<Property Name="Mix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Dry/Wet Mix (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>100.0</DefaultValue>
+				<AudioEnginePropertyID>12</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+		</Properties>
+	</EffectPlugin>
+</PluginModule>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+The content of this file includes portions of the AUDIOKINETIC Wwise Technology
+released in source code form as part of the SDK installer package.
+
+Commercial License Usage
+
+Licensees holding valid commercial licenses to the AUDIOKINETIC Wwise Technology
+may use this file in accordance with the end user license agreement provided
+with the software or, alternatively, in accordance with the terms contained in a
+written agreement between you and Audiokinetic Inc.
+
+Apache License Usage
+
+Alternatively, this file may be used under the Apache License, Version 2.0 (the
+"Apache License"); you may not use this file except in compliance with the
+Apache License. You may obtain a copy of the Apache License at
+http://www.apache.org/licenses/LICENSE-2.0.
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the Apache License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES
+OR CONDITIONS OF ANY KIND, either express or implied. See the Apache License for
+the specific language governing permissions and limitations under the License.
+
+  Copyright (c) 2026 Audiokinetic Inc.
+-->
+<PluginModule>
+	<EffectPlugin Name="TB_Phaser" CompanyID="319" PluginID="20994">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+
+			<!-- 0. Stages -->
+			<Property Name="Stages" Type="int32" SupportRTPCType="Additive" DisplayName="Stages">
+				<UserInterface Step="1" Fine="1" UIMin="2" UIMax="12" />
+				<DefaultValue>4</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="int32">
+							<Min>2</Min>
+							<Max>12</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 1. Center Frequency -->
+			<Property Name="CenterFreq" Type="Real32" SupportRTPCType="Additive" DisplayName="Center Freq (Hz)">
+				<UserInterface Step="100" Fine="1" Decimals="0" UIMin="20" UIMax="20000" />
+				<DefaultValue>1000.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20</Min>
+							<Max>20000</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 2. Depth -->
+			<Property Name="Depth" Type="Real32" SupportRTPCType="Additive" DisplayName="Depth (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>50.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0</Min>
+							<Max>100</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 3. LFO Rate -->
+			<Property Name="LFORate" Type="Real32" SupportRTPCType="Additive" DisplayName="LFO Rate (Hz)">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="2" UIMin="0.01" UIMax="20.0" />
+				<DefaultValue>1.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.01</Min>
+							<Max>20.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 4. LFO Shape-->
+			<Property Name="LFOShape" Type="int32" SupportRTPCType="Additive" DisplayName="LFO Shape">
+				<UserInterface />
+				<DefaultValue>0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Enumeration Type="int32">
+							<Value DisplayName="Sine">0</Value>
+							<Value DisplayName="Triangle">1</Value>
+							<Value DisplayName="Saw Up">2</Value>
+							<Value DisplayName="Saw Down">3</Value>
+							<Value DisplayName="Square">4</Value>
+							<Value DisplayName="Random">5</Value>
+						</Enumeration>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 5. Feedback -->
+			<Property Name="Feedback" Type="Real32" SupportRTPCType="Additive" DisplayName="Feedback (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-100" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>5</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-100</Min>
+							<Max>100</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 6. Detune -->
+			<Property Name="Detune" Type="Real32" SupportRTPCType="Additive" DisplayName="Detune (Cents)">
+				<UserInterface Step="10" Fine="1" Decimals="0" UIMin="0" UIMax="2400" />
+				<DefaultValue>700.0</DefaultValue>
+				<AudioEnginePropertyID>6</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0</Min>
+							<Max>2400</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 7. Low Bypass (Crossover) -->
+			<Property Name="LowBypassFreq" Type="Real32" SupportRTPCType="Additive" DisplayName="Low Bypass (Hz)">
+				<UserInterface Step="10" Fine="1" Decimals="0" UIMin="20" UIMax="20000" />
+				<DefaultValue>20.0</DefaultValue>
+				<AudioEnginePropertyID>7</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20</Min>
+							<Max>20000</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 8. Mix -->
+			<Property Name="Mix" Type="Real32" SupportRTPCType="Additive" DisplayName="Mix (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>100.0</DefaultValue>
+				<AudioEnginePropertyID>8</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0</Min>
+							<Max>100</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+		</Properties>
+	</EffectPlugin>
+</PluginModule>

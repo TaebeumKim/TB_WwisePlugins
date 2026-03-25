@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginModule>
+	<EffectPlugin Name="TB_RingMod" CompanyID="319" PluginID="23228">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+
+			<!-- 0. Modulation Frequency (Hz) -->
+			<Property Name="ModFreq" Type="Real32" SupportRTPCType="Additive" DisplayName="Modulation Frequency (Hz)">
+				<UserInterface Step="10" Fine="1" Decimals="1" UIMin="0.1" UIMax="4000" />
+				<DefaultValue>400.0</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.1</Min>
+							<Max>20000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 1. Modulation Depth (%) -->
+			<Property Name="Depth" Type="Real32" SupportRTPCType="Additive" DisplayName="Modulation Depth (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>100.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 2. LFO Waveform -->
+			<Property Name="Waveform" Type="int32" SupportRTPCType="Exclusive" DisplayName="LFO Waveform">
+				<DefaultValue>0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Enumeration Type="int32">
+							<Value DisplayName="Sine">0</Value>
+							<Value DisplayName="Triangle">1</Value>
+							<Value DisplayName="Square">2</Value>
+							<Value DisplayName="Sawtooth">3</Value>
+						</Enumeration>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 3. Dry/Wet Mix (%) -->
+			<Property Name="Mix" Type="Real32" SupportRTPCType="Additive" DisplayName="Dry/Wet Mix (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>100.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 4. Output Gain (dB) -->
+			<Property Name="OutputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Output Gain (dB)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-24" UIMax="24" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>24.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+		</Properties>
+	</EffectPlugin>
+</PluginModule>

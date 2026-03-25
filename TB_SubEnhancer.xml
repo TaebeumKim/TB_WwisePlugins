@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginModule>
+	<EffectPlugin Name="TB_SubEnhancer" CompanyID="319" PluginID="32293">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+
+			<Property Name="DetectionFreq" Type="Real32" SupportRTPCType="Additive" DisplayName="Detection Freq (Hz)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="40.0" UIMax="150.0" />
+				<DefaultValue>80.0</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>300.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="SubAmount" Type="Real32" SupportRTPCType="Additive" DisplayName="Sub Amount (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>50.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>200.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="Drive" Type="Real32" SupportRTPCType="Additive" DisplayName="Drive">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="2" UIMin="1.0" UIMax="10.0" />
+				<DefaultValue>1.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>1.0</Min>
+							<Max>20.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="Mix" Type="Real32" SupportRTPCType="Additive" DisplayName="Dry/Wet Mix (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>100.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="OutputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Output Gain (dB)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-24" UIMax="24" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>24.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+		</Properties>
+	</EffectPlugin>
+</PluginModule>

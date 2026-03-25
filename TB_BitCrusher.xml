@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Wwise Plugin XML Definition -->
+<PluginModule>
+	<EffectPlugin Name="TB_BitCrusher" CompanyID="319" PluginID="17729">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+			<!-- 0: Input Gain -->
+			<Property Name="InputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Input Gain">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="2" UIMin="-24" UIMax="24" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>24.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 1: Bit Depth -->
+			<Property Name="BitDepth" Type="Real32" SupportRTPCType="Additive" DisplayName="Bit Depth">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="2" UIMin="1" UIMax="16" />
+				<DefaultValue>16.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>1.0</Min>
+							<Max>16.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 2: Sample Rate -->
+			<Property Name="SampleRate" Type="Real32" SupportRTPCType="Additive" DisplayName="Sample Rate">
+				<UserInterface Step="100" Fine="1" Decimals="0" UIMin="6000" UIMax="48000" />
+				<DefaultValue>48000.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>100.0</Min>
+							<Max>48000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 3: ADCQ -->
+			<Property Name="ADCQ" Type="Real32" SupportRTPCType="Additive" DisplayName="ADC Quality">
+				<UserInterface Step="0.01" Fine="0.001" Decimals="3" UIMin="0" UIMax="1" />
+				<DefaultValue>1.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>1.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 4: DACQ -->
+			<Property Name="DACQ" Type="Real32" SupportRTPCType="Additive" DisplayName="DAC Quality">
+				<UserInterface Step="0.01" Fine="0.001" Decimals="3" UIMin="0" UIMax="1" />
+				<DefaultValue>1.0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>1.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 5: Low Shelf Freq -->
+			<Property Name="LowShelfFreq" Type="Real32" SupportRTPCType="Additive" DisplayName="Low Shelf Freq">
+				<UserInterface Step="10" Fine="1" Decimals="0" UIMin="20" UIMax="1000" />
+				<DefaultValue>20.0</DefaultValue>
+				<AudioEnginePropertyID>5</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>1000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 6: Low Shelf Gain -->
+			<Property Name="LowShelfGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Low Shelf Gain">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="2" UIMin="-24" UIMax="24" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>6</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>24.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 7: High Shelf Freq -->
+			<Property Name="HighShelfFreq" Type="Real32" SupportRTPCType="Additive" DisplayName="High Shelf Freq">
+				<UserInterface Step="100" Fine="10" Decimals="0" UIMin="1000" UIMax="20000" />
+				<DefaultValue>20000.0</DefaultValue>
+				<AudioEnginePropertyID>7</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>1000.0</Min>
+							<Max>20000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 8: High Shelf Gain -->
+			<Property Name="HighShelfGain" Type="Real32" SupportRTPCType="Additive" DisplayName="High Shelf Gain">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="2" UIMin="-24" UIMax="24" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>8</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>24.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 9: Dither -->
+			<Property Name="Dither" Type="Real32" SupportRTPCType="Additive" DisplayName="Dither">
+				<UserInterface Step="0.01" Fine="0.001" Decimals="3" UIMin="0" UIMax="1" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>9</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>1.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 10: Output Gain -->
+			<Property Name="OutputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Output Gain">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="2" UIMin="-12" UIMax="12" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>10</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-12.0</Min>
+							<Max>12.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 11: Mix -->
+			<Property Name="Mix" Type="Real32" SupportRTPCType="Additive" DisplayName="Mix">
+				<UserInterface Step="0.01" Fine="0.001" Decimals="3" UIMin="0" UIMax="1" />
+				<DefaultValue>1.0</DefaultValue>
+				<AudioEnginePropertyID>11</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>1.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+		</Properties>
+	</EffectPlugin>
+</PluginModule>

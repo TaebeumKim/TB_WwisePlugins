@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginModule>
+	<EffectPlugin Name="TB_CrossSynth" CompanyID="319" PluginID="25931">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+			<Property Name="Mix" Type="Real32" SupportRTPCType="Additive" DisplayName="Dry/Wet Mix (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>100.0</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+			<Property Name="OutputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Output Gain (dB)">
+				<UserInterface Step="0.5" Fine="0.1" Decimals="1" UIMin="-24" UIMax="24" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>24.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- Sidechain Scope -->
+			<Property Name="SidechainScope" Type="int32" DocId="CompressorSidechainMixScope" DisplayName="Sidechain Scope">
+				<DefaultValue>0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Enumeration Type="int32">
+							<Value DisplayName="Global">0</Value>
+							<Value DisplayName="Game Object">1</Value>
+						</Enumeration>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- Sidechain Mix Source Reference -->
+			<Reference Name="SidechainRef" DocId="CompressorSidechainMix" DisplayName="Sidechain Mix Source" ShortDisplayName="Sidechain Mix Source">
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<TypeEnumerationRestriction>
+						<Type Name="SidechainMix" />
+					</TypeEnumerationRestriction>
+				</Restrictions>
+			</Reference>
+
+		</Properties>
+		
+	</EffectPlugin>
+</PluginModule>

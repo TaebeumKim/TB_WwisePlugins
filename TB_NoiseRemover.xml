@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginModule>
+	<EffectPlugin Name="TB_NoiseRemover" CompanyID="319" PluginID="3711">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+			<!-- 1. Hum/Buzz (배음 노치 필터) -->
+			<Property Name="HumFreq" Type="Real32" SupportRTPCType="Additive" DisplayName="Hum Base Freq (Hz)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="40.0" UIMax="200.0" />
+				<DefaultValue>60.0</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>500.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+			<Property Name="HumAmount" Type="Real32" SupportRTPCType="Additive" DisplayName="Hum Reduction (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0.0" UIMax="100.0" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 2. Hiss/Airy (광대역 백색소음 게이트) -->
+			<Property Name="HissThreshold" Type="Real32" SupportRTPCType="Additive" DisplayName="Hiss Threshold (dB)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-96.0" UIMax="0.0" />
+				<DefaultValue>-60.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-120.0</Min>
+							<Max>0.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+			<Property Name="HissAmount" Type="Real32" SupportRTPCType="Additive" DisplayName="Hiss Reduction (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0.0" UIMax="100.0" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 3. De-click (팝/틱 스파이크 억제) -->
+			<Property Name="ClickAmount" Type="Real32" SupportRTPCType="Additive" DisplayName="De-click Amount (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0.0" UIMax="100.0" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 4. De-esser (치찰음 압축) -->
+			<Property Name="DeEsserFreq" Type="Real32" SupportRTPCType="Additive" DisplayName="De-esser Freq (Hz)">
+				<UserInterface Step="100" Fine="10" Decimals="0" UIMin="4000.0" UIMax="10000.0" />
+				<DefaultValue>6000.0</DefaultValue>
+				<AudioEnginePropertyID>5</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>2000.0</Min>
+							<Max>15000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+			<Property Name="DeEsserAmount" Type="Real32" SupportRTPCType="Additive" DisplayName="De-esser Amount (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0.0" UIMax="100.0" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>6</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 5. De-plosive (파열음/바람소리 압축) -->
+			<Property Name="PlosiveFreq" Type="Real32" SupportRTPCType="Additive" DisplayName="De-plosive Freq (Hz)">
+				<UserInterface Step="10" Fine="1" Decimals="0" UIMin="20.0" UIMax="200.0" />
+				<DefaultValue>100.0</DefaultValue>
+				<AudioEnginePropertyID>7</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>500.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+			<Property Name="PlosiveAmount" Type="Real32" SupportRTPCType="Additive" DisplayName="De-plosive Amount (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0.0" UIMax="100.0" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>8</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 6. De-reverb (잔향/룸 톤 억제) -->
+			<Property Name="DeReverbAmount" Type="Real32" SupportRTPCType="Additive" DisplayName="De-reverb Amount (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0.0" UIMax="100.0" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>9</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 7. Output -->
+			<Property Name="OutputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Makeup Gain (dB)">
+				<UserInterface Step="0.5" Fine="0.1" Decimals="1" UIMin="-24.0" UIMax="24.0" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>10</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>24.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+		</Properties>
+	</EffectPlugin>
+</PluginModule>

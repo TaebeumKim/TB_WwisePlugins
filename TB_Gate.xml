@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+The content of this file includes portions of the AUDIOKINETIC Wwise Technology
+released in source code form as part of the SDK installer package.
+-->
+<PluginModule>
+  <EffectPlugin Name="TB_Gate" CompanyID="319" PluginID="31799">
+    <PluginInfo>
+      <PlatformSupport>
+        <Platform Name="Any">
+          <CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+          <CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+          <CanBeRendered>true</CanBeRendered>
+        </Platform>
+      </PlatformSupport>
+    </PluginInfo>
+    <Properties>
+      <!-- ID 0: Open Threshold -->
+      <Property Name="OpenThreshold" Type="Real32" SupportRTPCType="Additive" DisplayName="Open Threshold (dB)">
+        <UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-80" UIMax="0" />
+        <DefaultValue>-20.0</DefaultValue>
+        <AudioEnginePropertyID>0</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>-80.0</Min>
+              <Max>0.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <!-- ID 1: Close Threshold -->
+      <Property Name="CloseThreshold" Type="Real32" SupportRTPCType="Additive" DisplayName="Close Threshold (dB)">
+        <UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-80" UIMax="0" />
+        <DefaultValue>-30.0</DefaultValue>
+        <AudioEnginePropertyID>1</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>-80.0</Min>
+              <Max>0.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <!-- ID 2: Attack -->
+      <Property Name="Attack" Type="Real32" SupportRTPCType="Additive" DisplayName="Attack (ms)">
+        <UserInterface Step="1" Fine="0.1" Decimals="2" UIMin="0.01" UIMax="1000" />
+        <DefaultValue>1.0</DefaultValue>
+        <AudioEnginePropertyID>2</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.01</Min>
+              <Max>1000.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <!-- ID 3: Hold -->
+      <Property Name="Hold" Type="Real32" SupportRTPCType="Additive" DisplayName="Hold (ms)">
+        <UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="1000" />
+        <DefaultValue>10.0</DefaultValue>
+        <AudioEnginePropertyID>3</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>1000.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <!-- ID 4: Release -->
+      <Property Name="Release" Type="Real32" SupportRTPCType="Additive" DisplayName="Release (ms)">
+        <UserInterface Step="10" Fine="1" Decimals="1" UIMin="1" UIMax="5000" />
+        <DefaultValue>100.0</DefaultValue>
+        <AudioEnginePropertyID>4</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>1.0</Min>
+              <Max>5000.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <!-- ID 5: Range -->
+      <Property Name="Range" Type="Real32" SupportRTPCType="Additive" DisplayName="Range (dB)">
+        <UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-80" UIMax="0" />
+        <DefaultValue>-80.0</DefaultValue>
+        <AudioEnginePropertyID>5</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>-80.0</Min>
+              <Max>0.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <!-- ID 6: Lookahead -->
+      <Property Name="Lookahead" Type="Real32" SupportRTPCType="Additive" DisplayName="Lookahead (ms)">
+        <UserInterface Step="0.1" Fine="0.01" Decimals="2" UIMin="0" UIMax="10" />
+        <DefaultValue>0.0</DefaultValue>
+        <AudioEnginePropertyID>6</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Range Type="Real32">
+              <Min>0.0</Min>
+              <Max>20.0</Max>
+            </Range>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <!-- ID 7: Sidechain Scope (중복 방지를 위해 7번으로 변경) -->
+      <Property Name="SidechainScope" Type="int32" DocId="CompressorSidechainMixScope" DisplayName="Sidechain Scope">
+        <DefaultValue>0</DefaultValue>
+        <AudioEnginePropertyID>7</AudioEnginePropertyID>
+        <Restrictions>
+          <ValueRestriction>
+            <Enumeration Type="int32">
+              <Value DisplayName="Global">0</Value>
+              <Value DisplayName="Game Object">1</Value>
+            </Enumeration>
+          </ValueRestriction>
+        </Restrictions>
+      </Property>
+
+      <!-- ID 8: Sidechain Mix Source Reference (중복 방지를 위해 8번으로 변경) -->
+      <Reference Name="SidechainRef" DocId="CompressorSidechainMix" DisplayName="Sidechain Mix Source" ShortDisplayName="Sidechain Mix Source">
+        <AudioEnginePropertyID>8</AudioEnginePropertyID>
+        <Restrictions>
+          <TypeEnumerationRestriction>
+            <Type Name="SidechainMix" />
+          </TypeEnumerationRestriction>
+        </Restrictions>
+      </Reference>
+    </Properties>
+  </EffectPlugin>
+</PluginModule>

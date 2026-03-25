@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+See https://www.audiokinetic.com/library/edge/?source=SDK&id=plugin__xml.html
+for the documentation about the plugin xml format
+-->
+<PluginModule>
+	<EffectPlugin Name="TB_Chorus" CompanyID="319" PluginID="22321">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+			<!-- 1. 보이스의 개수 (2~4) -->
+			<Property Name="Voices" Type="int32" SupportRTPCType="Exclusive" DisplayName="Voices">
+				<DefaultValue>2</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="int32">
+							<Min>2</Min>
+							<Max>4</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 2. 딜레이 타임 (1~30ms) -->
+			<Property Name="DelayTime" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Delay Time (ms)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMax="30" />
+				<DefaultValue>10.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>1.0</Min>
+							<Max>30.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 3. 디튠 (0~50cent) -->
+			<Property Name="Detune" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Detune (cent)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMax="50" />
+				<DefaultValue>10.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>50.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 4. 모듈레이션 LFO Rate (0.1~6Hz) -->
+			<Property Name="LFORate" Type="Real32" SupportRTPCType="Exclusive" DisplayName="LFO Rate (Hz)">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="2" UIMax="6" />
+				<DefaultValue>1.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.1</Min>
+							<Max>6.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 5. 모듈레이션 Depth (0~100) -->
+			<Property Name="LFODepth" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Depth">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMax="100" />
+				<DefaultValue>50.0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 6. LFO 타입 (Sine, Triangle, Saw Up, Saw Down) -->
+			<Property Name="LFOType" Type="int32" SupportRTPCType="Exclusive" DisplayName="LFO Type">
+				<DefaultValue>1</DefaultValue>
+				<AudioEnginePropertyID>5</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Enumeration Type="int32">
+							<Value DisplayName="Type 1 (Sine)">1</Value>
+							<Value DisplayName="Type 2 (Triangle)">2</Value>
+							<Value DisplayName="Type 3 (Saw Up)">3</Value>
+							<Value DisplayName="Type 4 (Saw Down)">4</Value>
+						</Enumeration>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 7. 크로스오버 주파수 (20~2000Hz) -->
+			<Property Name="CrossoverFreq" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Crossover Freq (Hz)">
+				<UserInterface Step="10" Fine="1" Decimals="0" UIMax="2000" />
+				<DefaultValue>500.0</DefaultValue>
+				<AudioEnginePropertyID>6</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>2000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 8. Mix (0~100%) -->
+			<Property Name="Mix" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Mix (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMax="100" />
+				<DefaultValue>50.0</DefaultValue>
+				<AudioEnginePropertyID>7</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+		</Properties>
+	</EffectPlugin>
+</PluginModule>

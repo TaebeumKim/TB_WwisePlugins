@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+The content of this file includes portions of the AUDIOKINETIC Wwise Technology
+released in source code form as part of the SDK installer package.
+-->
+<PluginModule>
+	<EffectPlugin Name="TB_TubeExeciter" CompanyID="64" PluginID="25875">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+			<!-- 1. Type (배음 텍스처 선택) -->
+			<Property Name="Type" Type="int32" SupportRTPCType="Exclusive" DisplayName="Type">
+				<DefaultValue>0</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Enumeration Type="int32">
+							<Value DisplayName="Warm">0</Value>
+							<Value DisplayName="Edge">1</Value>
+							<Value DisplayName="Air">2</Value>
+							<Value DisplayName="Balanced">3</Value>
+						</Enumeration>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 2. Frequency (배음 시작점 HPF) -->
+			<Property Name="Frequency" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Frequency (Hz)">
+				<UserInterface Step="10" Fine="1" Decimals="0" UIMin="1000" UIMax="10000" />
+				<DefaultValue>3000.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>20.0</Min>
+							<Max>20000.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 3. Drive (배음 밀도/강도) -->
+			<Property Name="Drive" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Drive (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 4. Dynamic (다이나믹 제어) -->
+			<Property Name="Dynamic" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Dynamic (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 5. Amount (최종 믹스량) -->
+			<Property Name="Amount" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Amount (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 6. Tube (아날로그 질감) -->
+			<Property Name="Tube" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Tube (%)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="0" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>5</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 7. Color (배음 톤 쉐이핑) -->
+			<Property Name="Color" Type="Real32" SupportRTPCType="Exclusive" DisplayName="Color (Dark/Bright)">
+				<UserInterface Step="1" Fine="0.1" Decimals="1" UIMin="-100" UIMax="100" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>6</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-100.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<!-- 8. Delta (솔로/모니터링 버튼) -->
+			<Property Name="Delta" Type="bool" SupportRTPCType="Exclusive" DisplayName="Delta Listen">
+				<DefaultValue>false</DefaultValue>
+				<AudioEnginePropertyID>7</AudioEnginePropertyID>
+			</Property>
+
+		</Properties>
+	</EffectPlugin>
+</PluginModule>

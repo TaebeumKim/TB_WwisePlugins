@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginModule>
+	<EffectPlugin Name="TB_Distortion2" CompanyID="319" PluginID="13406">
+		<PluginInfo>
+			<PlatformSupport>
+				<Platform Name="Any">
+					<CanBeInsertOnBusses>true</CanBeInsertOnBusses>
+					<CanBeInsertOnAudioObjects>true</CanBeInsertOnAudioObjects>
+					<CanBeRendered>true</CanBeRendered>
+				</Platform>
+			</PlatformSupport>
+		</PluginInfo>
+		<Properties>
+			<Property Name="DistortionType" Type="int32" DisplayName="Distortion Type">
+				<DefaultValue>0</DefaultValue>
+				<AudioEnginePropertyID>0</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Enumeration Type="int32">
+							<Value DisplayName="Overdrive">0</Value>
+							<Value DisplayName="Saturate">1</Value>
+							<Value DisplayName="Fuzz">2</Value>
+							<Value DisplayName="Sine Fold">3</Value>
+							<Value DisplayName="Hard Clip">4</Value>
+						</Enumeration>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="InputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Input Gain">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="1" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>1</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>12.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="BaseDrive" Type="Real32" SupportRTPCType="Additive" DisplayName="Drive">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="2" />
+				<DefaultValue>50.0</DefaultValue>
+				<AudioEnginePropertyID>2</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>1.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="DynamicsAmount" Type="Real32" SupportRTPCType="Additive" DisplayName="Dynamics">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="1" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>3</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-100.0</Min>
+							<Max>100.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="Color" Type="Real32" SupportRTPCType="Additive" DisplayName="Color">
+				<UserInterface Step="0.01" Fine="0.001" Decimals="2" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>4</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-1.0</Min>
+							<Max>1.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="ColorMixRatio" Type="Real32" SupportRTPCType="Additive" DisplayName="Color Mix">
+				<UserInterface Step="0.01" Fine="0.001" Decimals="2" />
+				<DefaultValue>0.5</DefaultValue>
+				<AudioEnginePropertyID>5</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>1.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="PhaseKnobValue" Type="Real32" SupportRTPCType="Additive" DisplayName="Phase Shift">
+				<UserInterface Step="0.01" Fine="0.001" Decimals="2" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>6</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>1.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="MixRatio" Type="Real32" SupportRTPCType="Additive" DisplayName="Mix">
+				<UserInterface Step="0.01" Fine="0.001" Decimals="2" />
+				<DefaultValue>1.0</DefaultValue>
+				<AudioEnginePropertyID>7</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>0.0</Min>
+							<Max>1.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+
+			<Property Name="OutputGain" Type="Real32" SupportRTPCType="Additive" DisplayName="Output Gain">
+				<UserInterface Step="0.1" Fine="0.01" Decimals="1" />
+				<DefaultValue>0.0</DefaultValue>
+				<AudioEnginePropertyID>8</AudioEnginePropertyID>
+				<Restrictions>
+					<ValueRestriction>
+						<Range Type="Real32">
+							<Min>-24.0</Min>
+							<Max>24.0</Max>
+						</Range>
+					</ValueRestriction>
+				</Restrictions>
+			</Property>
+		</Properties>
+	</EffectPlugin>
+</PluginModule>
