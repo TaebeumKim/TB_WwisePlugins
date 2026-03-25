@@ -36,17 +36,6 @@ This bundle includes the following 20 plugins:
 4. Restart the Wwise Authoring Tool.
 5. Verify that the `TB_...` plugins load correctly in the Project Explorer (under ShareSets) or in your Mixer/Object Effect lists.
 
-## ⚠️ License & Terms of Use
-
-By downloading and using this plugin bundle, you agree to the following terms. **Please read carefully.**
-
-1. **Strictly Non-Commercial Use Only**
-   These plugins are strictly for personal learning, portfolio creation, research, and non-profit projects. You may **NOT**, under any circumstances, use them in revenue-generating projects, including commercial games, monetized videos, or freelance client work.
-2. **No Redistribution**
-   You are strictly prohibited from uploading, redistributing, sharing, or selling the original files, modified files, or source code anywhere on the internet or to third parties.
-3. **Attribution Required**
-   If you publish or showcase any audio work (e.g., portfolio videos, non-commercial indie games) created using these plugins, you **MUST** include the creator's name or designated logo in your credits or description.
-   * *Example:* "Audio processing powered by TB Wwise Plugins ([Your Name])"
 
 ## 🛠 Disclaimer
 
