@@ -44,6 +44,5 @@ This software is provided "AS IS", without warranty of any kind. The creator sha
 ---
 
 **Contact / Support**
-* **Developer:** [Your Name / Nickname]
-* **Email:** [Your Email Address]
-* **Website/Portfolio:** [Your Website Link]
+* **Developer:** [TaeBeum Kim]
+* **Email:** [ktb7056@gmail.com]
