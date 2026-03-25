@@ -36,9 +36,10 @@ This bundle includes the following 20 plugins:
 4. Restart the Wwise Authoring Tool.
 5. Verify that the `TB_...` plugins load correctly in the Project Explorer (under ShareSets) or in your Mixer/Object Effect lists.
 
-## ⚠️ Compatibility Warning
+## ⚠️ Compatibility & Platform Warnings
 
-To enable sidechain functionality, these plugins were implemented specifically for **Wwise version 25.1**. Please be aware that they may not function correctly in future updates or different versions of Wwise.
+* **Version Dependency:** To enable sidechain functionality, these plugins were implemented specifically for **Wwise version 25.1**. Please be aware that they may not function correctly in future updates or different versions of Wwise.
+* **Platform Limitations:** Currently, SDKs for **Android, iOS, PS5, Nintendo, and macOS are not implemented**. These plugins are currently built and supported for Windows only.
 
 ## 🛠 Disclaimer
 
